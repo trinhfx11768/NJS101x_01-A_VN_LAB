@@ -22,7 +22,7 @@ app.use('/admin', adminRoutes.routes);
 app.use(shopRoutes);
 
 app.use((req, res, next) => {
-    res.render('404', {docTitle: 'Page not found'});
+    res.status(404).render('404', {docTitle: 'Page not found'});
 })
 
 app.listen(3000);
