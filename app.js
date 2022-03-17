@@ -2,23 +2,16 @@ const http = require('http');
 
 const express = require('express');
 
+const adminRoutes = require('./routes/admin');
+const shopRoutes = require('./routes/shop');
+
 const app = express();
 
 //Parsed body cho form data, XMLHttp, Json, ...
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/add-product', (req, res, next) => {
-    res.send(`<form action="/product" method="POST"><input type="text" name="title"><button type="submit">Send</button></form>`);
-});
-
-app.post('/product', (req, res, next) => {
-    console.log(req.body);
-    res.redirect('/');
-})
-
-app.use('/', (req, res, next) => {
-    res.send(`<h1>Hello from Express.js</h1>`);
-});
+app.use(adminRoutes);
+app.use(shopRoutes);
 
 const server = http.createServer(app);
 
