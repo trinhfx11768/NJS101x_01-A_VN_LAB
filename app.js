@@ -4,17 +4,19 @@ const express = require('express');
 
 const app = express();
 
-app.use('/', (req, res, next) => {
-    console.log('This always run!');
-    next();
-});
+//Parsed body cho form data, XMLHttp, Json, ...
+app.use(express.urlencoded({ extended: false }));
 
 app.use('/add-product', (req, res, next) => {
-    res.send(`<h1>This is "ADD PRODUCT PAGE"!</h1>`);
+    res.send(`<form action="/product" method="POST"><input type="text" name="title"><button type="submit">Send</button></form>`);
 });
 
+app.use('/product', (req, res, next) => {
+    console.log(req.body);
+    res.redirect('/');
+})
+
 app.use('/', (req, res, next) => {
-    console.log('In another middleware!');
     res.send(`<h1>Hello from Express.js</h1>`);
 });
 
