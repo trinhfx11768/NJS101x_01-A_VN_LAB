@@ -7,6 +7,11 @@ const shopRoutes = require('./routes/shop');
 
 const app = express();
 
+//templates engine
+//pug
+app.set('view engine', 'pug');
+app.set('views', 'views');
+
 //Parsed body cho form data, XMLHttp, Json, ...
 app.use(express.urlencoded({ extended: false }));
 
