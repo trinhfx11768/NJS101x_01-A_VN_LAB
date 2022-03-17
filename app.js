@@ -10,6 +10,9 @@ const app = express();
 //Parsed body cho form data, XMLHttp, Json, ...
 app.use(express.urlencoded({ extended: false }));
 
+//static là path for folder công khai, cố định cố định; __dirname là thư mục gốc của project
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 
