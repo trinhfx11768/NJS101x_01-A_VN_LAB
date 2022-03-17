@@ -1,0 +1,23 @@
+{
+  "name": "njs101x_01-a_vn",
+  "version": "1.0.0",
+  "description": "NJS LAB",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon --inspect app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trinhfx11768/NJS101x_01-A_VN_LAB.git"
+  },
+  "author": "NGUYEN HOANG TRI",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trinhfx11768/NJS101x_01-A_VN_LAB/issues"
+  },
+  "homepage": "https://github.com/trinhfx11768/NJS101x_01-A_VN_LAB#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
