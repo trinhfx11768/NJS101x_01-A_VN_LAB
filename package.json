@@ -19,5 +19,8 @@
   "homepage": "https://github.com/trinhfx11768/NJS101x_01-A_VN_LAB#readme",
   "devDependencies": {
     "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
   }
 }
