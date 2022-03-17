@@ -10,7 +10,7 @@ const app = express();
 //Parsed body cho form data, XMLHttp, Json, ...
 app.use(express.urlencoded({ extended: false }));
 
-app.use(adminRoutes);
+app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 
 app.use((req, res, next) => {
