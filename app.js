@@ -22,8 +22,7 @@ app.use('/admin', adminRoutes.routes);
 app.use(shopRoutes);
 
 app.use((req, res, next) => {
-    //path.join(__dirname,) là nơi đang sử dụng nó.
-    res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
+    res.render('404', {docTitle: 'Page not found'});
 })
 
 app.listen(3000);
