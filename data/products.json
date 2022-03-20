@@ -1,1 +1,9 @@
-[{"title":"book 1"},{"title":"book 2"},{"title":"book 3"},{"title":"book 4"},{"title":"Book 6"},{"title":"Book 7"}]
+[
+    {
+        "id": "123245",
+        "title": "A Book",
+        "imageUrl": "https://www.publicdomainpictures.net/pictures/10000/velka/1-1210009435EGmE.jpg",
+        "description": "This is an awesome book!",
+        "price": "19"
+    }
+]
