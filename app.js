@@ -21,10 +21,6 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-db.execute('SELECT * FROM products')
-    .then(result => console.log(result))
-    .catch(err => console.log(err));
-
 //hbs
 // app.engine('.hbs', handlebars.engine({extname: '.hbs'}));
 // app.set('view engine', '.hbs');
