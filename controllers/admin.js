@@ -15,8 +15,10 @@ exports.postAddProduct = (req, res, next) => {
   const description = req.body.description;
   //id = null để hàm save k tìm thấy id.
   const product = new Product(null, title, imageUrl, description, price);
-  product.save();
-  res.redirect('/');
+  product.save()
+    .then(() => {
+      res.redirect('/');})
+    .catch(err => console.log(err));
 };
 
 exports.getEditProduct = (req, res, next) => {
