@@ -13,13 +13,14 @@ exports.postAddProduct = (req, res, next) => {
   const price = req.body.price;
   const imageUrl = req.body.imageUrl;
   const description = req.body.description;
-  Product.create({
+  //auto liên kết với bảng user
+  req.user.createProduct({
     //bên trái là các colun của database, bên phải là hằng số của hàm (lấy từ body))
     title: title,
     price: price,
     imageUrl: imageUrl,
-    description: description
-  })
+    description: description,
+    userId: req.user.id,})
     .then(result => {
       console.log('Created product!');
       res.redirect('/admin/products');
