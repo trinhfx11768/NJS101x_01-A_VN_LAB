@@ -84,11 +84,23 @@ exports.postCart = (req, res, next) => {
 
 exports.postCartDeleteProduct = (req, res, next) => {
   const prodId = req.body.productId;
+  req.user.getCart()
+    .then(cart => {
+      return cart.getProducts({where: {id: prodId}})
+    })
+    .then(products=> {
+      const product = products[0];
+      return product.cartItem.destroy();
+    })
+    .then(result => {
+      res.redirect('/cart');
+    })
+    .catch((err) => console.log(err));
   //sử dụng Product.findById để tìm ra sản phẩm và lấy các info khác nếu cần, như price chẳng hạn. 
-  Product.findById(prodId, (product) => {
-    Cart.deleteProduct(prodId, product.price);
-    res.redirect('/cart');
-  })
+  // Product.findById(prodId, (product) => {
+  //   Cart.deleteProduct(prodId, product.price);
+  //   res.redirect('/cart');
+  // })
 }
 
 exports.getOrders = (req, res, next) => {
