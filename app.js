@@ -3,7 +3,7 @@ const path = require('path');
 const express = require('express');
 // const handlebars = require('express-handlebars');
 
-// const adminRoutes = require('./routes/admin');
+const adminRoutes = require('./routes/admin');
 // const shopRoutes = require('./routes/shop');
 
 const errorController = require('./controllers/error');
@@ -41,7 +41,7 @@ app.use((req, res, next) => {
     //     })
     //     .catch(err => console.log(err));
 });
-// app.use('/admin', adminRoutes);
+app.use('/admin', adminRoutes);
 // app.use(shopRoutes);
 
 app.use(errorController.get404);
