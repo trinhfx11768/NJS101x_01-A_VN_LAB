@@ -10,10 +10,11 @@ exports.getAddProduct = (req, res, next) => {
 
 exports.postAddProduct = (req, res, next) => {
   const title = req.body.title;
+  const description = req.body.description;
   const price = req.body.price;
   const imageUrl = req.body.imageUrl;
-  const description = req.body.description;
-  const product = new Product(title, price, imageUrl, description);
+  const product = new Product(title, price, imageUrl, description); 
+  //giống thứ tự bên Model => Product => constructor
   product.save()
     .then(result => {
       console.log('Created product!');
