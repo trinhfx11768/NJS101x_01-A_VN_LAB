@@ -1,3 +1,5 @@
+const mongodb = require('mongodb');
+
 const getDb = require('../util/database').getDb;
 
 class Product {
@@ -26,14 +28,17 @@ class Product {
       })
       .catch(err => console .log(err));
   }
-}
 
-// const Product = sequelize.define('product', {
-//   id: {type: Sequelize.INTEGER, autoIncrement: true, allowNull: false, primaryKey: true},
-//   title: {type: Sequelize.STRING},
-//   price: {type: Sequelize.DOUBLE, allowNull: false},
-//   imageUrl: {type: Sequelize.STRING, allowNull: false},
-//   description: {type: Sequelize.STRING, allowNull: false}
-// });
+  static findById(prodId) {
+    const db = getDb();
+    //dùng next vì find sẽ tìm nhiều id nên next đến id cuối
+    return db.collection('products').find({_id: mongodb.ObjectId(prodId)}).next()
+      .then(product => {
+        console.log(product);
+        return product;
+      })
+      .catch(err => console .log(err));
+  }
+}
 
 module.exports = Product;

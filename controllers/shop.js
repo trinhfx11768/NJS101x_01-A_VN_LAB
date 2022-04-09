@@ -15,7 +15,7 @@ exports.getProducts = (req, res, next) => {
 exports.getProduct = (req, res, next) => {
   const prodId = req.params.productId;
   //Product.findAll({where: {id: prodId}})...{product: products[0]} đây là 1 cách khác
-  Product.findByPk(prodId)
+  Product.findById(prodId)
     .then(product => {
         res.render('shop/product-detail', {product: product, pageTitle: product.title, path: '/products'});
       })
