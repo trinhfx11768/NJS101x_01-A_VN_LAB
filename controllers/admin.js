@@ -1,5 +1,3 @@
-const mongodb = require('mongodb');
-
 const Product = require('../models/product');
 
 exports.getAddProduct = (req, res, next) => {
@@ -52,7 +50,7 @@ exports.postEditProduct = (req, res) => {
   const updatedPrice = req.body.price;
   const updatedImageUrl = req.body.imageUrl;
   const updatedDesc = req.body.description;
-  const product = new Product(updatedTitle, updatedPrice, updatedImageUrl, updatedDesc, new mongodb.ObjectId(prodId));
+  const product = new Product(updatedTitle, updatedPrice, updatedImageUrl, updatedDesc, prodId);
   //return product.save() trả về 1 promise
   product.save()
     .then(result => {
