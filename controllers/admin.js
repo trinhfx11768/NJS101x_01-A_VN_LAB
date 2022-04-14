@@ -13,7 +13,7 @@ exports.postAddProduct = (req, res, next) => {
   const description = req.body.description;
   const price = req.body.price;
   const imageUrl = req.body.imageUrl;
-  const product = new Product(title, price, imageUrl, description); 
+  const product = new Product(title, price, imageUrl, description, null, req.user._id); 
   //giống thứ tự bên Model => Product => constructor
   product.save()
     .then(result => {
